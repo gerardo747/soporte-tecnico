@@ -1,0 +1,85 @@
+
+*{
+box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+
+a{
+text-decoration: none;
+}
+ul, ol, li{
+ list-style-type: none ;
+}
+
+
+.titulo{
+     text-align: center;
+     color: yellow;
+     background-color: black;
+     font-size: 50px;
+     margin:25px;
+    
+}
+
+
+/*****************************************tarjeta*********************************************************/
+.div1{
+    display: flex ;
+    justify-content: space-between;
+    background-color: black;
+     align-items: center;
+    }
+
+    p{
+        background-color: black;
+        
+    }
+
+    li{
+        background-color: rgb(0, 128, 21);
+        color: yellow;
+        font-size: 30px;
+        margin: 25px;
+    }
+
+    
+.bibi{
+        width: 100px;
+        height: 100px;
+    }
+
+.tarj{
+    padding: 20px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+
+.divtarj{
+    display: flex ;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
+    width: 22%;
+    background-color: rgb(0, 0, 0);
+
+
+
+
+    p{
+        background-color: black;
+        color: yellow;
+    }
+}
+.tamtarj{
+     width: 300px;
+        height: 200px;
+}
+.main1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+     background-color: black;
+}
