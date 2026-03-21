@@ -121,3 +121,11 @@ ul, ol, li{
         width: 30%;
     }
 }
+
+
+.divtarj {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    background: #fff;
+}
