@@ -85,29 +85,52 @@ ul, ol, li{
 }
 
 
-@media(max-width: 768px) {
+/* 📱 Base: celulares pequeños (hasta ~480px) */
+.detail-content {
+    flex-direction: column;
+}
+
+.detail-content .detail.product,
+#product-full {
+    width: 100%;
+}
+
+header {
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-nav {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product {
+    width: 90%;
+}
+
+/* 📱 Celulares grandes / tablets chicas */
+@media (min-width: 481px) {
+    .product {
+        width: 70%;
+    }
+}
+
+/* 💻 Tablets */
+@media (min-width: 768px) {
     .detail-content {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .detail-content .detail.product,
     #product-full {
-        width: 100%;
+        width: 50%;
     }
 }
 
-@media(max-width: 480px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .user-nav {
-        flex-direction: column;
-        gap: 10px;
-    }
-
+/* 🖥️ Desktop */
+@media (min-width: 1024px) {
     .product {
-        width: 90%;
+        width: 30%;
     }
 }
