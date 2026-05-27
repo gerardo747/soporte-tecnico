@@ -1,131 +1,635 @@
+/* =========================
+   RESET
+========================= */
 
 *{
-box-sizing: border-box;
- margin: 0;
- padding: 0;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-a{
-text-decoration: none;
-}
-ul, ol, li{
- list-style-type: none ;
+html{
+    scroll-behavior:smooth;
 }
 
-
-.titulo{
-     text-align: center;
-     color: yellow;
-     background-color: black;
-     font-size: 50px;
-     margin:25px;
-    
+body{
+    font-family:'Inter',sans-serif;
+    background:#020617;
+    color:#e2e8f0;
+    overflow-x:hidden;
 }
 
+/* =========================
+   BACKGROUND EFFECT (como antes)
+========================= */
 
-/*****************************************tarjeta*********************************************************/
-.div1{
-    display: flex ;
-    justify-content: space-between;
-    background-color: black;
-     align-items: center;
+body::before{
+    content:'';
+    position:fixed;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,#2563eb33 0%,transparent 70%);
+    top:-200px;
+    left:-200px;
+    z-index:-1;
+}
+
+body::after{
+    content:'';
+    position:fixed;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,#06b6d433 0%,transparent 70%);
+    bottom:-200px;
+    right:-200px;
+    z-index:-1;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* =========================
+   HERO (más grande como antes)
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero-content{
+    animation:fadeIn 1.2s ease;
+}
+
+.hero h1{
+    font-size:4rem;
+    font-weight:800;
+    margin-bottom:15px;
+    background:linear-gradient(to right,#38bdf8,#2563eb);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero h2{
+    font-size:1.5rem;
+    font-weight:400;
+    color:#cbd5e1;
+    margin-bottom:25px;
+}
+
+.hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:1.1rem;
+    color:#94a3b8;
+    line-height:1.8;
+}
+
+/* =========================
+   CONTACT + BUTTONS
+========================= */
+
+.contact{
+    margin-top:30px;
+}
+
+.btn,
+.contact-btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 30px;
+    border-radius:50px;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+    box-shadow:0 10px 30px rgba(37,99,235,0.3);
+}
+
+.btn:hover,
+.contact-btn:hover{
+    transform:translateY(-5px);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:80px 0;
+}
+
+.section-title{
+    font-size:2.5rem;
+    margin-bottom:50px;
+    text-align:center;
+    font-weight:800;
+}
+
+/* =========================
+   GRID (como original)
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+/* =========================
+   CARD (más visual como antes)
+========================= */
+
+.card{
+    background:rgba(15,23,42,0.8);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    border-radius:25px;
+    padding:30px;
+    transition:0.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:'';
+    position:absolute;
+    width:150%;
+    height:150%;
+    background:linear-gradient(45deg,transparent,#38bdf822,transparent);
+    top:-100%;
+    left:-100%;
+    transition:0.6s;
+}
+
+.card:hover::before{
+    top:100%;
+    left:100%;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#38bdf8;
+}
+
+/* =========================
+   TIMELINE (RESTAURADO PRO)
+========================= */
+
+.timeline{
+    position:relative;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    width:4px;
+    height:100%;
+    background:#2563eb;
+    transform:translateX(-50%);
+}
+
+.timeline-item{
+    width:50%;
+    padding:20px 40px;
+    position:relative;
+}
+
+.timeline-item:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    left:50%;
+}
+
+.timeline-dot{
+    width:20px;
+    height:20px;
+    background:#38bdf8;
+    border-radius:50%;
+    position:absolute;
+    top:30px;
+    right:-10px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+    left:-10px;
+}
+
+/* =========================
+   SKILLS (igual que original)
+========================= */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.skill{
+    padding:12px 20px;
+    border-radius:50px;
+    background:linear-gradient(135deg,#1d4ed8,#06b6d4);
+    font-weight:600;
+    transition:0.3s;
+}
+
+.skill:hover{
+    transform:scale(1.1);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#64748b;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   MOBILE FIX
+========================= */
+
+@media(max-width:900px){
+
+    .hero h1{
+        font-size:2.5rem;
     }
 
-    p{
-        background-color: black;
-        
+    .hero h2{
+        font-size:1.1rem;
     }
 
-    li{
-        background-color: rgb(0, 128, 21);
-        color: yellow;
-        font-size: 30px;
-        margin: 25px;
+    .section-title{
+        font-size:2rem;
     }
 
-    
-.bibi{
-        width: 100px;
-        height: 100px;
+    .timeline::before{
+        left:10px;
     }
 
-.tarj{
-    padding: 20px;
-    border-radius: 2px;
-    text-align: center;
-}
-
-
-.divtarj{
-    display: flex ;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    text-align: center;
-    width: 22%;
-    background-color: rgb(0, 0, 0);
-
-
-
-
-    p{
-        background-color: black;
-        color: yellow;
-    }
-}
-.tamtarj{
-     width: 300px;
-        height: 200px;
-}
-.main1 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-/* Tarjetas */
-.divtarj {
-    width: 90%;
-    text-align: center;
-}
-
-/* Imágenes */
-.tamtarj {
-    width: 100%;
-    height: auto;
-}
-
-/* Header */
-.div1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.bibi {
-    width: 60px;
-}
-@media (min-width: 600px) {
-    .divtarj {
-        width: 45%;
+    .timeline-item{
+        width:100%;
+        left:0 !important;
+        text-align:left !important;
+        padding-left:50px;
     }
 
-    .div1 {
-        flex-direction: row;
-        justify-content: space-between;
+    .timeline-dot{
+        left:0 !important;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
     }
 }
-@media (min-width: 1024px) {
-    .divtarj {
-        width: 30%;
+/* =========================
+   CONTACT PAGE (CONTACTO.HTML)
+========================= */
+
+.contact-form{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:60px 15px;
+}
+
+.contact-form main{
+    width:100%;
+    max-width:650px;
+    background:rgba(15,23,42,0.85);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    border-radius:25px;
+    padding:40px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    animation:fadeIn 0.8s ease;
+}
+
+/* TITULO */
+
+.form-title{
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:30px;
+    color:#38bdf8;
+}
+
+/* INPUTS */
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:18px;
+}
+
+label{
+    margin-bottom:6px;
+    color:#cbd5e1;
+    font-weight:500;
+}
+
+/* INPUTS STYLE */
+
+input,
+textarea{
+    padding:14px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:#0f172a;
+    color:white;
+    font-size:1rem;
+    outline:none;
+    transition:0.3s;
+}
+
+/* FOCUS EFFECT */
+
+input:focus,
+textarea:focus{
+    border-color:#38bdf8;
+    box-shadow:0 0 12px rgba(56,189,248,0.35);
+    transform:scale(1.01);
+}
+
+/* TEXTAREA */
+
+textarea{
+    min-height:140px;
+    resize:none;
+}
+
+/* BUTTON */
+
+.contact-form button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:white;
+    font-size:1.05rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 10px 30px rgba(37,99,235,0.3);
+}
+
+.contact-form button:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(6,182,212,0.5);
+}
+
+/* BUTTON ACTIVE (mobile touch) */
+
+.contact-form button:active{
+    transform:scale(0.97);
+}
+
+/* SUCCESS MESSAGE */
+
+.form-success{
+    display:none;
+    text-align:center;
+    margin-top:15px;
+    color:#22c55e;
+    font-weight:600;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .contact-form main{
+        padding:25px;
+        border-radius:18px;
+    }
+
+    .form-title{
+        font-size:1.6rem;
+    }
+
+    input,
+    textarea{
+        font-size:0.95rem;
+    }
+
+}
+/* =========================
+   CONTACT PAGE MODERNA RESPONSIVE
+========================= */
+
+.contact-page{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 15px;
+}
+
+/* CARD PRINCIPAL */
+
+.contact-card{
+    width:100%;
+    max-width:650px;
+    background:rgba(15,23,42,0.9);
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+    animation:fadeIn 0.8s ease;
+}
+
+/* TITULO */
+
+.contact-card h1{
+    font-size:2.4rem;
+    margin-bottom:10px;
+    color:#38bdf8;
+}
+
+/* SUBTITULO */
+
+.contact-subtitle{
+    color:#94a3b8;
+    margin-bottom:30px;
+    font-size:1rem;
+}
+
+/* FORM */
+
+.contact-form-modern{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    text-align:left;
+}
+
+/* INPUTS */
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    font-size:0.9rem;
+    margin-bottom:6px;
+    color:#cbd5e1;
+}
+
+input,
+textarea{
+    padding:14px;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:#0f172a;
+    color:white;
+    font-size:1rem;
+    outline:none;
+    transition:0.3s;
+}
+
+/* FOCUS */
+
+input:focus,
+textarea:focus{
+    border-color:#38bdf8;
+    box-shadow:0 0 12px rgba(56,189,248,0.35);
+    transform:scale(1.01);
+}
+
+textarea{
+    min-height:140px;
+    resize:none;
+}
+
+/* BOTÓN */
+
+.contact-form-modern button{
+    margin-top:10px;
+    padding:15px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:white;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 10px 30px rgba(37,99,235,0.3);
+}
+
+.contact-form-modern button:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(6,182,212,0.5);
+}
+
+/* LINK VOLVER */
+
+.back-link{
+    display:inline-block;
+    margin-top:20px;
+    color:#94a3b8;
+    text-decoration:none;
+}
+
+.back-link:hover{
+    color:#38bdf8;
+}
+
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+
+@media(max-width:1024px){
+
+    .contact-card{
+        max-width:80%;
+        padding:35px;
+    }
+
+    .contact-card h1{
+        font-size:2rem;
     }
 }
 
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
 
-.divtarj {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
-    background: #fff;
+@media(max-width:768px){
+
+    .contact-card{
+        padding:25px;
+        border-radius:18px;
+        max-width:95%;
+    }
+
+    .contact-card h1{
+        font-size:1.8rem;
+    }
+
+    input,
+    textarea{
+        font-size:0.95rem;
+    }
+}
+
+/* =========================
+   VERY SMALL DEVICES
+========================= */
+
+@media(max-width:480px){
+
+    .contact-card{
+        padding:20px;
+    }
+
+    .contact-card h1{
+        font-size:1.6rem;
+    }
+
+    .contact-form-modern button{
+        width:100%;
+    }
 }
