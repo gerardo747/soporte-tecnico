@@ -1,1 +1,1 @@
-Esta pagina es de prueba momentaneamente.
+Sitio web de contacto para postulaciones de trabajo.
